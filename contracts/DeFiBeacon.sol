@@ -1,14 +1,4 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-/**
- * @title DeFiBeacon
- * @dev A decentralized beacon for tracking and signaling important DeFi protocol events
- * @notice This contract allows protocols to register, emit signals, and users to track DeFi activities
- */
-contract DeFiBeacon {
-    
-    // Struct to store protocol information
+Struct to store protocol information
     struct Protocol {
         string name;
         address protocolAddress;
@@ -17,26 +7,12 @@ contract DeFiBeacon {
         uint256 totalSignals;
     }
     
-    // Struct to store signal information
-    struct Signal {
-        address protocol;
-        string eventType;
-        string description;
-        uint256 timestamp;
-        uint256 value;
-    }
-    
-    // State variables
+    State variables
     address public owner;
     uint256 public protocolCount;
     uint256 public signalCount;
     
-    // Mappings
-    mapping(address => Protocol) public protocols;
-    mapping(uint256 => Signal) public signals;
-    mapping(address => uint256[]) public protocolSignals;
-    
-    // Events
+    Events
     event ProtocolRegistered(address indexed protocolAddress, string name, uint256 timestamp);
     event SignalEmitted(uint256 indexed signalId, address indexed protocol, string eventType, uint256 timestamp);
     event ProtocolStatusUpdated(address indexed protocolAddress, bool isActive);
@@ -167,3 +143,6 @@ contract DeFiBeacon {
         return signalCount;
     }
 }
+// 
+update
+// 
